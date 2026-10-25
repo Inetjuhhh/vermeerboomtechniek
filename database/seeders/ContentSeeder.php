@@ -165,6 +165,39 @@ class ContentSeeder extends Seeder
                 . '<p><em>Laatst bijgewerkt: oktober 2026.</em></p>',
             'meta_description' => 'Hoe Vermeer Boomtechniek omgaat met uw gegevens: alleen voor het beantwoorden van uw vraag, geen tracking cookies.',
         ]);
+
+        // Optional side gig: switch off with "Zichtbaar" in the admin, or delete the page.
+        // Gallery photos are free-licence examples (CC BY 2.0, via Openverse/Flickr), not Bas's own work.
+        $wood = 'images/tijdelijk/houtbewerking/';
+        $flickr = fn (string $user, string $id) => "https://www.flickr.com/photos/$user/$id";
+        Page::firstOrCreate(['slug' => 'houtbewerking'], [
+            'title' => 'Houtbewerking met epoxy',
+            'menu_label' => 'Houtbewerking',
+            'show_in_menu' => true,
+            'intro' => 'Een boom die weg moet, hoeft niet in de versnipperaar te verdwijnen. Van het hout maakt Bas unieke stukken voor in huis, gecombineerd met epoxy.',
+            'body' => '<h2>Wat kan er?</h2>'
+                . '<ul>'
+                . '<li><strong>Bijzettafeltje</strong>: van een boomschijf of stamdeel, met een "rivier" of vulling van epoxy in de kleur die u kiest.</li>'
+                . '<li><strong>Lamp, staand of hangend</strong>: een stamdeel als staande lamp, of een boomschijf als hanglamp boven de eettafel, met epoxy waar het licht doorheen schijnt.</li>'
+                . '<li><strong>Borrelplank</strong>: een stevige plank met de natuurlijke rand van de boom, eventueel met een rand of inleg van epoxy.</li>'
+                . '<li><strong>Iets anders?</strong> Een wandklok, onderzetters of een salontafel: vraag gerust wat er kan.</li>'
+                . '</ul>'
+                . '<h2>Van uw eigen boom</h2>'
+                . '<p>Moet er bij u een boom weg? Dan kan Bas van dat hout iets maken, zodat de boom een herinnering blijft. Hout moet wel eerst goed drogen voordat het verwerkt kan worden. Dat kost tijd, soms maanden. Bas vertelt u vooraf wat er met uw hout kan en hoe lang het duurt.</p>'
+                . '<h2>Wat kost het?</h2>'
+                . '<p>Elk stuk is uniek en wordt op maat gemaakt. De prijs hangt af van het formaat, het hout en de hoeveelheid epoxy. Neem contact op, dan maken we samen een plan.</p>'
+                . '<p><em>De foto\'s hieronder zijn voorbeelden van internet, om een indruk te geven van de mogelijkheden. Ze zijn niet door Vermeer Boomtechniek gemaakt.</em></p>',
+            'image' => $wood . 'tafelblad-rond-epoxy.jpg',
+            'image_alt' => 'Rond tafelblad van hout met epoxy',
+            'gallery' => [
+                ['image' => $wood . 'bijzettafels-epoxy.jpg', 'caption' => 'Bijzettafels met turquoise epoxy', 'credit' => 'IndoGemstone, CC BY 2.0', 'credit_url' => $flickr('47544036@N03', '16237958925')],
+                ['image' => $wood . 'tafelblad-rond-epoxy.jpg', 'caption' => 'Rond tafelblad van teakwortel en epoxy', 'credit' => 'IndoGemstone, CC BY 2.0', 'credit_url' => $flickr('47544036@N03', '16237958475')],
+                ['image' => $wood . 'borrelplank-boomschijf.jpg', 'caption' => 'Borrelplank met natuurlijke rand', 'credit' => 'Afzalive, CC BY 2.0', 'credit_url' => $flickr('34837514@N04', '34318059923')],
+                ['image' => $wood . 'tafel-teak-epoxy.jpg', 'caption' => 'Tafel van teakwortel en epoxy', 'credit' => 'IndoGemstone, CC BY 2.0', 'credit_url' => $flickr('47544036@N03', '16237958795')],
+                ['image' => $wood . 'serveerplanken.jpg', 'caption' => 'Serveerplanken', 'credit' => 'Tradlands, CC BY 2.0', 'credit_url' => $flickr('87743767@N07', '13043182645')],
+            ],
+            'meta_description' => 'Bijzettafels, lampen en borrelplanken van hout en epoxy, op maat gemaakt door Vermeer Boomtechniek. Ook van het hout van uw eigen boom.',
+        ]);
     }
 
     private function reviews(): void

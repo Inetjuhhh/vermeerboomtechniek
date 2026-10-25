@@ -124,12 +124,23 @@ class SiteTest extends TestCase
         $this->assertSame(["Nieuw"], ContactMessage::pluck("name")->all());
     }
 
+    public function test_optional_page_can_be_switched_off(): void
+    {
+        $this->get("/houtbewerking")->assertOk()->assertSee("Borrelplank")->assertSee("IndoGemstone, CC BY 2.0");
+        $this->get("/")->assertSee(route("page", "houtbewerking"));
+
+        \App\Models\Page::where("slug", "houtbewerking")->update(["is_published" => false]);
+
+        $this->get("/houtbewerking")->assertNotFound();
+        $this->get("/")->assertDontSee(route("page", "houtbewerking"));
+    }
+
     public function test_admin_content_pages_load(): void
     {
         config(['site.admin_emails' => ['admin@example.com']]);
         $this->actingAs(User::factory()->create(['email' => 'admin@example.com']));
 
-        foreach (['/admin/berichten', '/admin/website/diensten', '/admin/website/diensten/snoeien/edit', '/admin/website/paginas/het-bedrijf/edit',
+        foreach (['/admin/berichten', '/admin/website/diensten', '/admin/website/diensten/snoeien/edit', '/admin/website/paginas/het-bedrijf/edit', '/admin/website/paginas/houtbewerking/edit',
             '/admin/website/reviews', '/admin/website/certificaten', '/admin/website/instellingen'] as $url) {
             $this->get($url)->assertOk();
         }

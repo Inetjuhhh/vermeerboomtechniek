@@ -73,4 +73,5 @@ Old URLs get 301 redirects (keeps Google rankings).
 - Admin: Berichten, Website (diensten incl. "deel van de boom", pagina's, reviews, certificaten, instellingen), Offerte calculator.
 - Local login: inetjuhhh@gmail.com / password (local only! choose a strong password on the server).
 - Privacy page /privacy (editable under Website → Pagina's). Contact messages are removed after 12 months (model:prune, daily): the server needs the scheduler cron.
+- Optional page /houtbewerking (epoxy side gig): switch off with "Zichtbaar" under Website → Pagina's, or delete it. Example photos are CC BY 2.0 (see public/images/tijdelijk/houtbewerking/BRONNEN.md); no lamp photo yet.
 - Still to do: real photos, Bas's prices, Turnstile on the contact form, SEO (sitemap, schema), go-live.

@@ -45,6 +45,8 @@ class SiteController extends Controller
 
     public function page(Page $page)
     {
+        abort_unless($page->is_published, 404);
+
         return view('page', [
             'page' => $page,
             'certificates' => Certificate::query()->orderBy('sort')->get(),

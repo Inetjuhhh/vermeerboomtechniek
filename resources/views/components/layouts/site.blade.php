@@ -7,8 +7,12 @@
         ['Diensten', route('services.index'), request()->routeIs('services.*') && ! $adviceActive],
         ['Advies & BEA', route('services.show', 'boomtechnisch-advies'), $adviceActive],
         ['Het bedrijf', route('page', 'het-bedrijf'), request()->is('het-bedrijf')],
-        ['Contact', route('contact'), request()->routeIs('contact')],
     ];
+    // Optional pages (e.g. Houtbewerking) appear here as long as they are visible and "in het menu"
+    foreach (\App\Models\Page::menuPages() as $menuPage) {
+        $nav[] = [$menuPage->menu_label ?: $menuPage->title, route('page', $menuPage), request()->is($menuPage->slug)];
+    }
+    $nav[] = ['Contact', route('contact'), request()->routeIs('contact')];
 @endphp
 <!DOCTYPE html>
 <html lang="nl">
@@ -79,6 +83,9 @@
                 <span class="label mb-1">Meer</span>
                 <a href="{{ route('calculator') }}" class="text-muted no-underline hover:text-accent">Bereken je offerte</a>
                 <a href="{{ route('page', 'het-bedrijf') }}" class="text-muted no-underline hover:text-accent">Het bedrijf</a>
+                @foreach (\App\Models\Page::menuPages() as $menuPage)
+                    <a href="{{ route('page', $menuPage) }}" class="text-muted no-underline hover:text-accent">{{ $menuPage->menu_label ?: $menuPage->title }}</a>
+                @endforeach
                 <a href="{{ route('contact') }}" class="text-muted no-underline hover:text-accent">Contact</a>
             </div>
         </div>
