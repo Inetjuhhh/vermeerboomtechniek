@@ -8,13 +8,13 @@
         <aside class="grid content-start gap-4 lg:sticky lg:top-6 lg:self-start">
             @if ($service->calculatorService?->is_active && ! $service->calculatorService->contact_only)
                 <div class="grid gap-3 bg-accent p-5 text-on-accent">
-                    <span class="font-display text-2xl font-bold uppercase">Wat kost het ongeveer?</span>
+                    <span class="font-display text-2xl font-bold">Wat kost het ongeveer?</span>
                     <p class="m-0">Beantwoord een paar vragen en zie direct een prijsindicatie.</p>
                     <a href="{{ route('calculator', ['dienst' => $service->calculatorService->slug]) }}" class="btn btn-dark">Bereken je prijs</a>
                 </div>
             @endif
             <div class="grid gap-2 border border-line p-5">
-                <span class="font-display text-2xl font-bold uppercase">Vragen?</span>
+                <span class="font-display text-2xl font-bold">Vragen?</span>
                 <a href="tel:{{ Site::phoneLink() }}" class="font-semibold no-underline">{{ Site::get('phone') }}</a>
                 <a href="mailto:{{ Site::get('email') }}" class="break-all">{{ Site::get('email') }}</a>
                 <a href="{{ route('contact', ['onderwerp' => $service->title]) }}" class="btn btn-outline mt-2">Stuur een bericht</a>

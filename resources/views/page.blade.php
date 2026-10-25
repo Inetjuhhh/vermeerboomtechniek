@@ -11,7 +11,7 @@
                         <img src="{{ $item['url'] }}" alt="{{ $item['caption'] }}" class="w-full" loading="lazy">
                         @if ($item['caption'] || $item['credit'])
                             <figcaption class="grid gap-1 p-3">
-                                @if ($item['caption'])<span class="font-display text-lg font-semibold uppercase tracking-wide">{{ $item['caption'] }}</span>@endif
+                                @if ($item['caption'])<span class="font-display text-lg font-semibold">{{ $item['caption'] }}</span>@endif
                                 @if ($item['credit'])
                                     <span class="text-xs text-dim">Foto:
                                         @if ($item['credit_url'])<a href="{{ $item['credit_url'] }}" target="_blank" rel="noopener" class="text-dim underline">{{ $item['credit'] }}</a>@else{{ $item['credit'] }}@endif

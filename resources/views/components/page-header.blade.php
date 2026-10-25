@@ -8,7 +8,7 @@
         @if ($eyebrow)
             <span class="label">{{ $eyebrow }}</span>
         @endif
-        <h1 class="m-0 max-w-3xl text-5xl sm:text-7xl">{{ $title }}</h1>
+        <h1 class="m-0 max-w-3xl text-4xl tracking-tight sm:text-6xl">{{ $title }}</h1>
         @if ($intro)
             <p class="m-0 max-w-2xl text-lg text-muted">{{ $intro }}</p>
         @endif

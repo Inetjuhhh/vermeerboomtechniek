@@ -7,7 +7,7 @@
         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-bg via-bg/70 to-bg/10 sm:bg-gradient-to-r sm:from-bg sm:via-bg/60 sm:to-transparent"></div>
         <div class="wrap grid gap-5 py-12 sm:py-16">
             <span class="label">Gecertificeerd boomverzorger · Wouw</span>
-            <h1 class="m-0 text-6xl leading-[.9] sm:text-8xl">Bomen,<br><span class="text-accent">vakkundig</span><br>verzorgd</h1>
+            <h1 class="m-0 text-5xl leading-[1.02] tracking-tight sm:text-7xl">Bomen,<br><span class="text-accent">vakkundig</span><br>verzorgd</h1>
             <p class="m-0 max-w-xl text-lg text-muted">Hoogwaardige boomverzorging door een gecertificeerde specialist. Bij Vermeer Boomtechniek staan professionaliteit, kwaliteit en persoonlijke aandacht centraal.</p>
             <div class="flex flex-wrap gap-3">
                 <a href="{{ route('calculator') }}" class="btn btn-primary">Bereken je offerte</a>
@@ -69,7 +69,7 @@
                         @endforeach
                     </div>
                 @endif
-                <a href="{{ route('page', 'het-bedrijf') }}" class="font-display font-semibold uppercase tracking-[.12em] no-underline">Meer over het bedrijf →</a>
+                <a href="{{ route('page', 'het-bedrijf') }}" class="font-display font-semibold no-underline">Meer over het bedrijf →</a>
             </div>
         </div>
     </section>
@@ -78,7 +78,7 @@
     @if ($review)
         <section class="wrap py-16">
             <span class="label">Klanten over Bas</span>
-            <blockquote class="m-0 mt-3 max-w-4xl font-display text-3xl font-semibold uppercase leading-tight sm:text-4xl">"{{ $review->quote }}"</blockquote>
+            <blockquote class="m-0 mt-3 max-w-4xl font-display text-3xl font-semibold leading-tight sm:text-4xl">"{{ $review->quote }}"</blockquote>
             @if ($review->name)
                 <p class="mt-3 mb-0 text-dim">{{ $review->name }}{{ $review->place ? ', ' . $review->place : '' }}</p>
             @endif

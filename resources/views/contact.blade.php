@@ -6,14 +6,14 @@
         <div class="grid gap-6">
             @if (session('sent'))
                 <div class="bg-accent p-5 text-on-accent" role="status">
-                    <span class="font-display text-2xl font-bold uppercase">Bedankt voor uw bericht!</span>
+                    <span class="font-display text-2xl font-bold">Bedankt voor uw bericht!</span>
                     <p class="m-0 mt-1">We nemen zo snel mogelijk contact met u op.</p>
                 </div>
             @endif
 
             @if ($summary)
                 <div class="grid gap-2 border border-line bg-surface p-5">
-                    <span class="font-display text-2xl font-bold uppercase">Uw antwoorden uit de calculator</span>
+                    <span class="font-display text-2xl font-bold">Uw antwoorden uit de calculator</span>
                     <p class="m-0 text-sm text-dim">Deze gegevens sturen we mee met uw bericht.</p>
                     <dl class="m-0 grid gap-x-4 gap-y-1 text-sm sm:grid-cols-[auto_1fr]">
                         <dt class="font-semibold">Dienst</dt><dd class="m-0 text-muted">{{ $summary['service'] }}</dd>
@@ -64,7 +64,7 @@
         </div>
 
         <aside class="grid gap-3 border border-line bg-surface p-6">
-            <span class="font-display text-2xl font-bold uppercase">Vermeer Boomtechniek</span>
+            <span class="font-display text-2xl font-bold">Vermeer Boomtechniek</span>
             <a href="tel:{{ Site::phoneLink() }}" class="font-semibold no-underline">{{ Site::get('phone') }}</a>
             <a href="mailto:{{ Site::get('email') }}" class="break-all">{{ Site::get('email') }}</a>
             <span class="text-muted">{{ Site::get('street') }}<br>{{ Site::get('city') }}</span>

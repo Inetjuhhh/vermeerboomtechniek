@@ -64,7 +64,7 @@ Old URLs get 301 redirects (keeps Google rankings).
 
 ## Status 25-10-2026 (evening)
 
-- Design: **A "Schors"** (dark bark, moss green, Barlow Condensed) with the tree rows from H
+- Design: **A "Schors"** (dark bark, moss green; fonts since 25-10: Quicksand for logo-like headings/menu/buttons, Nunito for body text) with the tree rows from H
   (Kroon / Stam / Wortels, two green and one brown). Chosen by Bas; B was built first and dropped.
   All colours/fonts are role-named tokens in `resources/css/app.css` (bg, surface, text, accent, crown/stem/roots),
   so another design later = mainly new token values + the few views in `resources/views`.
