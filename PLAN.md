@@ -35,7 +35,12 @@ Old URLs get 301 redirects (keeps Google rankings).
 3. Content pages + models/seeders with the current texts
 4. Contact form (spam protection with Turnstile, mail, saved in admin)
 5. Tarieven + calculator (rates editable in Filament)
-6. Import photos from WordPress (88 media files) and optimise them
+   - ✅ Admin part: Offerte calculator → Rekensom testen / Diensten en factoren / Overige kosten / Instellingen.
+     The sum is in `app/Calculator/QuoteCalculator.php`, starting data (EXAMPLE prices) in `CalculatorSeeder`.
+   - BEA has three methods (vaste prijs + per boom, uurbasis, vaste projectprijs): choose one with Bas.
+   - Still to do: the public page `/bereken-je-offerte` (after the design choice) and saving requests as leads.
+6. Photos: low-resolution copies of the current site are in `public/images/tijdelijk/` (see LEESMIJ.md there).
+   **TODO: upload the real photos in high resolution** and then delete that folder.
 7. SEO: meta/OG, sitemap, redirects from old URLs, LocalBusiness schema
 8. Go-live (same Hetzner server as inetjuhhh? decide later)
 
@@ -45,5 +50,6 @@ Old URLs get 301 redirects (keeps Google rankings).
 - KvK number, BTW number (also needed for the footer and terms)
 - Real prices for the calculator and the tarieven page
 - Real reviews (are the 3 on the site real? Google reviews?)
+- **The real photos in high resolution** (the ones in `public/images/tijdelijk/` are max. 800px)
 - Which photos are Bas's own (the `gardener-*.jpg` look like stock photos)
 - Boomverankering and Planten: more text, they now only have one line
