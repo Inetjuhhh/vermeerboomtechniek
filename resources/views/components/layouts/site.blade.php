@@ -84,9 +84,12 @@
         </div>
         <div class="wrap flex flex-wrap justify-between gap-2 border-t border-line py-5 text-sm text-dim">
             <span>© {{ date('Y') }} Vermeer Boomtechniek</span>
-            @if (Site::get('kvk'))
-                <span>KvK {{ Site::get('kvk') }}</span>
-            @endif
+            <span class="flex flex-wrap gap-x-5">
+                @if (Site::get('kvk'))
+                    <span>KvK {{ Site::get('kvk') }}</span>
+                @endif
+                <a href="{{ route('page', 'privacy') }}" class="text-dim hover:text-accent">Privacyverklaring</a>
+            </span>
         </div>
     </footer>
 </body>

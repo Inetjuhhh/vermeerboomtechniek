@@ -56,7 +56,10 @@
                     @error('message')<span id="message-error" class="text-sm text-red-300">{{ $message }}</span>@enderror
                 </div>
 
-                <div class="sm:col-span-2"><button type="submit" class="btn btn-primary">Verstuur bericht</button></div>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-3 sm:col-span-2">
+                    <button type="submit" class="btn btn-primary">Verstuur bericht</button>
+                    <p class="m-0 text-sm text-dim">We gebruiken uw gegevens alleen om uw vraag te beantwoorden. Lees de <a href="{{ route('page', 'privacy') }}">privacyverklaring</a>.</p>
+                </div>
             </form>
         </div>
 

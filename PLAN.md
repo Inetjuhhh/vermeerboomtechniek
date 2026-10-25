@@ -72,4 +72,5 @@ Old URLs get 301 redirects (keeps Google rankings).
   (Livewire, same sum as the admin), redirects from the old WordPress URLs.
 - Admin: Berichten, Website (diensten incl. "deel van de boom", pagina's, reviews, certificaten, instellingen), Offerte calculator.
 - Local login: inetjuhhh@gmail.com / password (local only! choose a strong password on the server).
-- Still to do: real photos, Bas's prices, privacy page, Turnstile on the contact form, SEO (sitemap, schema), go-live.
+- Privacy page /privacy (editable under Website → Pagina's). Contact messages are removed after 12 months (model:prune, daily): the server needs the scheduler cron.
+- Still to do: real photos, Bas's prices, Turnstile on the contact form, SEO (sitemap, schema), go-live.

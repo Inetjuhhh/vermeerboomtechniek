@@ -135,6 +135,36 @@ class ContentSeeder extends Seeder
             'image_alt' => 'Bas Vermeer lacht, met zijn klimuitrusting en zaag',
             'meta_description' => 'Vermeer Boomtechniek uit Wouw is in 2018 opgericht door Bas Vermeer, European Tree Worker en European Tree Technician.',
         ]);
+
+        // Matches what the site really does: contact form, calculator answers, only necessary cookies,
+        // messages removed after 12 months (ContactMessage is prunable, see routes/console.php).
+        Page::firstOrCreate(['slug' => 'privacy'], [
+            'title' => 'Privacyverklaring',
+            'intro' => 'Hoe Vermeer Boomtechniek omgaat met de gegevens die u via deze website achterlaat. Kort gezegd: we gebruiken ze alleen om uw vraag te beantwoorden.',
+            'body' => '<h2>Wie zijn wij?</h2>'
+                . '<p>Vermeer Boomtechniek (Bas Vermeer), Omgang 16, Wouw, is verantwoordelijk voor de verwerking van persoonsgegevens via deze website. Vragen over privacy kunt u mailen naar <a href="mailto:info@vermeerboomtechniek.nl">info@vermeerboomtechniek.nl</a>.</p>'
+                . '<h2>Welke gegevens verwerken we?</h2>'
+                . '<p>Alleen de gegevens die u zelf invult in het contactformulier:</p>'
+                . '<ul><li>naam en e-mailadres</li><li>telefoonnummer en onderwerp, als u die invult</li><li>uw bericht</li><li>uw antwoorden en de prijsindicatie uit de offertecalculator, als u die meestuurt</li></ul>'
+                . '<p>De offertecalculator zelf slaat niets op. Pas als u op "Vraag een vrijblijvende offerte aan" klikt en daarna het contactformulier verstuurt, gaan uw antwoorden met uw bericht mee.</p>'
+                . '<h2>Waarvoor gebruiken we ze?</h2>'
+                . '<p>Om uw vraag te beantwoorden, een opname in te plannen en u een offerte te sturen. Dat doen we omdat u ons daar zelf om vraagt (artikel 6 lid 1 sub b AVG). We gebruiken uw gegevens niet voor nieuwsbrieven of reclame en verkopen ze nooit.</p>'
+                . '<h2>Hoe lang bewaren we ze?</h2>'
+                . '<p>Berichten via het contactformulier worden na 12 maanden automatisch verwijderd. Wordt u klant, dan bewaren we de gegevens die nodig zijn voor de offerte en de factuur zo lang als de wet voorschrijft (voor de administratie 7 jaar).</p>'
+                . '<h2>Met wie delen we ze?</h2>'
+                . '<p>Met niemand, behalve de partijen die nodig zijn om deze website en e-mail te laten werken: ons hostingbedrijf en onze e-mailprovider. Zij mogen uw gegevens alleen voor ons verwerken en niet voor zichzelf gebruiken.</p>'
+                . '<h2>Cookies</h2>'
+                . '<p>Deze website gebruikt alleen cookies die nodig zijn om de site te laten werken:</p>'
+                . '<ul><li><strong>vermeer-boomtechniek-session</strong>: onthoudt tijdens uw bezoek bijvoorbeeld uw antwoorden uit de calculator. Verdwijnt na 2 uur.</li><li><strong>XSRF-TOKEN</strong>: beveiligt het contactformulier tegen misbruik. Verdwijnt na 2 uur.</li></ul>'
+                . '<p>We gebruiken geen analytische of tracking cookies en geen advertenties. De lettertypes staan op onze eigen server. De video op de homepagina is een link naar YouTube: pas als u erop klikt, gaat u naar YouTube en gelden de regels van YouTube.</p>'
+                . '<h2>Uw rechten</h2>'
+                . '<p>U mag ons altijd vragen welke gegevens we van u hebben, en vragen om ze te verbeteren of te verwijderen. U kunt ook bezwaar maken tegen het gebruik ervan. Mail daarvoor naar <a href="mailto:info@vermeerboomtechniek.nl">info@vermeerboomtechniek.nl</a>; we reageren binnen een maand.</p>'
+                . '<p>Bent u niet tevreden over hoe we met uw gegevens omgaan? Dan kunt u een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>'
+                . '<h2>Beveiliging</h2>'
+                . '<p>De website gebruikt een beveiligde verbinding (https). Alleen Vermeer Boomtechniek kan de berichten in het beheer lezen.</p>'
+                . '<p><em>Laatst bijgewerkt: oktober 2026.</em></p>',
+            'meta_description' => 'Hoe Vermeer Boomtechniek omgaat met uw gegevens: alleen voor het beantwoorden van uw vraag, geen tracking cookies.',
+        ]);
     }
 
     private function reviews(): void

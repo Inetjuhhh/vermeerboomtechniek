@@ -110,6 +110,20 @@ class SiteTest extends TestCase
             ->assertSet('answers', []);
     }
 
+    public function test_privacy_page_is_linked_and_old_messages_are_removed(): void
+    {
+        $this->get("/privacy")->assertOk()->assertSee("Privacyverklaring")->assertSee("na 12 maanden automatisch verwijderd")->assertSee("XSRF-TOKEN");
+        $this->get("/contact")->assertSee(route("page", "privacy"));
+
+        $old = ContactMessage::create(["name" => "Oud", "email" => "oud@example.com", "message" => "x"]);
+        $old->forceFill(["created_at" => now()->subMonths(13)])->save();
+        ContactMessage::create(["name" => "Nieuw", "email" => "nieuw@example.com", "message" => "y"]);
+
+        $this->artisan("model:prune", ["--model" => [ContactMessage::class]])->assertSuccessful();
+
+        $this->assertSame(["Nieuw"], ContactMessage::pluck("name")->all());
+    }
+
     public function test_admin_content_pages_load(): void
     {
         config(['site.admin_emails' => ['admin@example.com']]);
