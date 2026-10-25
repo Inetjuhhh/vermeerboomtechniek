@@ -29,6 +29,10 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandName('Vermeer Boomtechniek')
+            ->brandLogo(fn () => asset('images/logo/logo-donker.png'))
+            ->darkModeBrandLogo(fn () => asset('images/logo/logo-licht.png'))
+            ->brandLogoHeight('2.5rem')
+            ->favicon(fn () => asset('images/logo/beeldmerk.png'))
             ->colors([
                 'primary' => Color::hex('#2f6b3a'),
                 'gray' => Color::Stone,

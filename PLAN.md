@@ -54,7 +54,7 @@ Old URLs get 301 redirects (keeps Google rankings).
 
 ## Needed from Ine/Bas
 
-- Logo in high resolution (SVG preferably); the site now only has PNG up to 300px
+- Logo: received 25-10 as JPG (1800px), converted to public/images/logo (light/dark/tree). An SVG is still welcome for print and sharpness.
 - KvK number, BTW number (also needed for the footer and terms)
 - Real prices for the calculator and the tarieven page
 - Real reviews (are the 3 on the site real? Google reviews?)
