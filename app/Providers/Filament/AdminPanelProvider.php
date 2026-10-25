@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
                 'gray' => Color::Stone,
             ])
             ->navigationGroups([
+                NavigationGroup::make('Website'),
                 NavigationGroup::make('Offerte calculator'),
             ])
             ->unsavedChangesAlerts()

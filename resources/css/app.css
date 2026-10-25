@@ -1,9 +1,67 @@
 @import 'tailwindcss';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/barlow-condensed/700.css';
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+/*
+ * Design A "Schors", with the tree rows (kroon, stam, wortels) from design H.
+ * Colours are named by their role, not by their colour: to switch to another
+ * design later, change the values here (and the fonts above).
+ */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-bg: #1e1913;          /* page background: bark */
+    --color-surface: #2a231b;     /* cards, form fields, alternating sections */
+    --color-line: #3a3127;        /* dividing lines */
+    --color-text: #ece4d6;        /* body text */
+    --color-muted: #c9bfae;       /* secondary text */
+    --color-dim: #b5a68f;         /* labels, menu */
+    --color-accent: #97b443;      /* moss green: buttons, links, highlights */
+    --color-accent-hover: #abc85a;
+    --color-on-accent: #1e1913;   /* text on the accent colour */
+
+    /* Rows "in de kroon", "aan de stam", "onder de grond" */
+    --color-crown: #8fab3e;
+    --color-stem: #4d6a26;
+    --color-roots: #5a4330;
+
+    --font-sans: 'Barlow', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+
+@layer base {
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body { @apply bg-bg text-text font-sans antialiased; font-size: 1.0625rem; line-height: 1.65; }
+    h1, h2, h3 { @apply font-display font-bold uppercase text-text; line-height: 1; letter-spacing: .01em; text-wrap: balance; }
+    a { @apply text-accent; }
+    ::selection { @apply bg-accent text-on-accent; }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+@layer components {
+    .wrap { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+    .btn { @apply inline-flex items-center justify-center gap-2 px-5 py-3 font-display text-[.95rem] font-semibold uppercase tracking-[.14em] no-underline transition-colors; }
+    .btn-primary { @apply bg-accent text-on-accent hover:bg-accent-hover; }
+    .btn-outline { @apply border border-dim text-text hover:border-accent hover:text-accent; }
+    .btn-dark { @apply bg-bg text-text hover:bg-surface; }
+    .label { @apply font-display text-sm font-semibold uppercase tracking-[.18em] text-accent; }
+    .field { @apply w-full border border-line bg-surface px-3 py-2.5 text-text placeholder:text-dim focus:border-accent focus:outline-none; }
+
+    /* Text from the admin's rich editor */
+    .prose-vb { @apply max-w-[68ch] text-muted; }
+    .prose-vb > * + * { margin-top: 1em; }
+    .prose-vb h2 { @apply mt-10 text-3xl sm:text-4xl text-text; }
+    .prose-vb h3 { @apply mt-8 text-2xl text-text; }
+    .prose-vb ul { @apply grid gap-0 border-t border-line pl-0; list-style: none; }
+    .prose-vb ul li { @apply relative border-b border-line py-2 pl-6; }
+    .prose-vb ul li::before { content: ''; @apply absolute left-0 top-[1.05em] size-2 bg-accent; }
+    .prose-vb ol { @apply list-decimal pl-6; }
+    .prose-vb strong { @apply font-semibold text-text; }
+    .prose-vb blockquote { @apply border-l-4 border-accent pl-5 font-display text-2xl font-semibold uppercase leading-tight text-text; }
+    .prose-vb a { @apply underline underline-offset-2; }
 }

@@ -44,6 +44,14 @@ Old URLs get 301 redirects (keeps Google rankings).
 7. SEO: meta/OG, sitemap, redirects from old URLs, LocalBusiness schema
 8. Go-live (same Hetzner server as inetjuhhh? decide later)
 
+## From the WordPress export (25-10-2026)
+
+- Texts are the same as on the live site (already used in the design proposals).
+- YouTube video "Vermeer Boomtechniek - Werkzaamheden": https://youtu.be/WZhOGdUF91s (home + Het bedrijf)
+- Contact form fields: Naam, E-mailadres, Telefoonnummer, Onderwerp, Bericht; mails to info@vermeerboomtechniek.nl
+- Old menu: Home, Aanbod Boomverzorging, Boomtechnisch advies (submenu: Advies, BEA), Het Bedrijf, Contact
+- Design proposals (4 directions): claude.ai artifact CJm5M6zJDRWCGrsKx4zagE
+
 ## Needed from Ine/Bas
 
 - Logo in high resolution (SVG preferably); the site now only has PNG up to 300px
@@ -53,3 +61,15 @@ Old URLs get 301 redirects (keeps Google rankings).
 - **The real photos in high resolution** (the ones in `public/images/tijdelijk/` are max. 800px)
 - Which photos are Bas's own (the `gardener-*.jpg` look like stock photos)
 - Boomverankering and Planten: more text, they now only have one line
+
+## Status 25-10-2026 (evening)
+
+- Design: **A "Schors"** (dark bark, moss green, Barlow Condensed) with the tree rows from H
+  (Kroon / Stam / Wortels, two green and one brown). Chosen by Bas; B was built first and dropped.
+  All colours/fonts are role-named tokens in `resources/css/app.css` (bg, surface, text, accent, crown/stem/roots),
+  so another design later = mainly new token values + the few views in `resources/views`.
+- Built: home, /diensten, /diensten/{slug}, /het-bedrijf, /contact (form + mail + spam trap), /bereken-je-offerte
+  (Livewire, same sum as the admin), redirects from the old WordPress URLs.
+- Admin: Berichten, Website (diensten incl. "deel van de boom", pagina's, reviews, certificaten, instellingen), Offerte calculator.
+- Local login: inetjuhhh@gmail.com / password (local only! choose a strong password on the server).
+- Still to do: real photos, Bas's prices, privacy page, Turnstile on the contact form, SEO (sitemap, schema), go-live.
